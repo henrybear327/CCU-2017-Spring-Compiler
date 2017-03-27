@@ -1,0 +1,116 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, A4]{article}
+\usepackage[utf8]{inputenc}
+
+%%%%%% Font setting %%%%%%
+
+\usepackage{fontspec} %加這個就可以設定字體 
+
+\usepackage{xeCJK} %讓中英文字體分開設置
+%\setmainfont{Apple Symbols}
+\setCJKmainfont{STKaiti} %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+%\setmonofont{Courier} %等寬字體
+\setmonofont{Oxygen Mono}
+
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+%%%%%% Coding style %%%%%%
+% sudo easy_install Pygments
+% Add -shell-escape to compile flag
+\usepackage{minted}
+
+% Run in terminal for checking available styles: pygmentize -L styles
+\usemintedstyle{friendly}
+
+\usepackage{hyperref}
+
+
+%%%%%% 文件正式開始 %%%%%%
+
+\title{Compiler \\ Assignment 2 –\ Finite automata}
+\author{403410033 \ 資工三 \ 曾俊宏}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Question 1}
+	
+	\subsection{aa}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $\epsilon-closure(\{1\}) = \{1, 2 , 8, 9, 11\}$\\
+	$S_2$ = $move(\{1, 2, 8, 9, 11\}, a) = \{3, 10\}$\\
+	$S_3$ = $\epsilon-closure(\{3, 10\}) = \{3, 4, 6, 9, 10, 11\}$\\
+	$S_4$ = $move(\{3, 4, 6, 9, 10, 11\}, a) = \{7, 10\}$\\
+	$S_5$ = $\epsilon-closure(\{7, 10\}) = \{7, 9, 10, 11, 13\}$\\
+	
+	\subsection{abba}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $\epsilon-closure(\{1\}) = \{1, 2 , 8, 9, 11\}$\\
+	$S_2$ = $move(\{1, 2, 8, 9, 11\}, a) = \{3, 10\}$\\
+	$S_3$ = $\epsilon-closure(\{3, 10\}) = \{3, 4, 6, 9, 10, 11\}$\\
+	$S_4$ = $move(\{3, 4, 6, 9, 10, 11\}, b) = \{5, 12\}$\\
+	$S_5$ = $\epsilon-closure(\{5, 12\}) = \{4, 5, 6, 9, 10, 11, 12, 13\}$\\
+	$S_6$ = $move(\{4, 5, 6, 9, 10, 11, 12, 13\}, b) = \{5, 12\}$\\
+	$S_7$ = $\epsilon-closure(\{5, 12\}) = \{4, 5, 6, 9, 10, 11, 12, 13\}$\\
+	$S_8$ = $move(\{4, 5, 6, 9, 10, 11, 12, 13\}, a) = \{7, 10\}$\\
+	$S_9$ = $\epsilon-closure(\{7, 10\}) = \{7, 9, 10, 11, 13\}$\\
+	
+	\subsection{b}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $\epsilon-closure(\{1\}) = \{1, 2 , 8, 9, 11\}$\\
+	$S_2$ = $move(\{1, 2, 8, 9, 11\}, b) = \{12\}$\\
+	$S_3$ = $\epsilon-closure(\{12\}) = \{12, 13\}$\\
+	
+	\subsection{aaab}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $\epsilon-closure(\{1\}) = \{1, 2 , 8, 9, 11\}$\\
+	$S_2$ = $move(\{1, 2, 8, 9, 11\}, a) = \{3, 10\}$\\
+	$S_3$ = $\epsilon-closure(\{3, 10\}) = \{3, 4, 6, 9, 10, 11\}$\\
+	$S_4$ = $move(\{3, 4, 6, 9, 10, 11\}, a) = \{7, 10\}$\\
+	$S_5$ = $\epsilon-closure(\{7, 10\}) = \{7, 9, 10, 11, 13\}$\\
+	$S_6$ = $move(\{7, 9, 10, 11, 13\}, a) = \{10\}$\\
+	$S_7$ = $\epsilon-closure(\{10\}) = \{9, 10, 11\}$\\
+	$S_8$ = $move(\{9, 10, 11\}, b) = \{12\}$\\
+	$S_9$ = $\epsilon-closure(\{12\}) = \{12, 13\}$\\
+	
+	\newpage
+	
+	\section{Question 2}
+	
+	\subsection{aa}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $move(\{1\}, a) = \{2\}$\\
+	$S_2$ = $move(\{2\}, a) = \{4\}$\\
+	
+	\subsection{abba}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $move(\{1\}, a) = \{2\}$\\
+	$S_2$ = $move(\{2\}, b) = \{5\}$\\
+	$S_3$ = $move(\{5\}, b) = \{8\}$\\
+	$S_4$ = $move(\{8\}, a) = \{7\}$\\
+	
+	\subsection{b}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $move(\{1\}, b) = \{3\}$\\
+	
+	\subsection{aaab}
+	
+	$S_0$ = $\{1\}$\\
+	$S_1$ = $move(\{1\}, a) = \{2\}$\\
+	$S_2$ = $move(\{2\}, a) = \{4\}$\\
+	$S_3$ = $move(\{4\}, a) = \{6\}$\\
+	$S_4$ = $move(\{6\}, b) = \{3\}$\\
+	
+\end{document}
