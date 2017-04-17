@@ -1,0 +1,193 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, A4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[linguistics]{forest}
+
+
+%%%%%% Font setting %%%%%%
+
+\usepackage{fontspec} %加這個就可以設定字體 
+
+\usepackage{xeCJK} %讓中英文字體分開設置
+%\setmainfont{Apple Symbols}
+\setCJKmainfont{STKaiti} %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+%\setmonofont{Courier} %等寬字體
+\setmonofont{Oxygen Mono}
+
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+%%%%%% Coding style %%%%%%
+% sudo easy_install Pygments
+% Add -shell-escape to compile flag
+\usepackage{minted}
+
+% Run in terminal for checking available styles: pygmentize -L styles
+\usemintedstyle{friendly}
+
+\usepackage{hyperref}
+
+
+%%%%%% 文件正式開始 %%%%%%
+
+\title{Compiler \\ Assignment 4 \\ Context-Free Grammars}
+\author{403410033 \ 資工三 \ 曾俊宏}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\newpage
+
+	\section{Question 1}
+	
+	\subsection*{a)}
+	
+	Terminals: or, and, not, true, false, (, )\\
+	Non-terminals: bexpr, bterm, bfactor\\
+	Start symbols: bexpr\\
+	
+	\subsection*{b)}
+	
+	\begin{enumerate}
+		\item bexpr
+		\item bterm
+		\item bfactor
+		\item \textbf{not} bfactor
+		\item \textbf{not} (bexpr)
+		\item \textbf{not} (bexpr \textbf{or} bterm)
+		\item \textbf{not} (btrem \textbf{or} bterm)
+		\item \textbf{not} (bfactor \textbf{or} bterm)
+		\item \textbf{not} (\textbf{true} \textbf{or} bterm)
+		\item \textbf{not} (\textbf{true} \textbf{or} bterm \textbf{and} bfactor)
+		\item \textbf{not} (\textbf{true} \textbf{or} bfactor \textbf{and} bfactor)
+		\item \textbf{not} (\textbf{true} \textbf{or} \textbf{false} \textbf{and} bfactor)
+		\item \textbf{not} (\textbf{true} \textbf{or} \textbf{false} \textbf{and} \textbf{true})
+		
+	\end{enumerate}
+	
+	\subsection*{c)}
+	
+	\begin{enumerate}
+		\item bexpr
+		\item bterm
+		\item bfactor
+		\item \textbf{not} bfactor
+		\item \textbf{not} (bexpr)
+		\item \textbf{not} (bexpr \textbf{or} bterm)
+		\item \textbf{not} (bexpr \textbf{or} bterm \textbf{and} bfactor)
+		\item \textbf{not} (bexpr \textbf{or} bterm \textbf{and} \textbf{true})
+		\item \textbf{not} (bexpr \textbf{or} bfactor \textbf{and} \textbf{true})
+		\item \textbf{not} (bexpr \textbf{or} \textbf{false} \textbf{and} \textbf{true})
+		\item \textbf{not} (bterm \textbf{or} \textbf{false} \textbf{and} \textbf{true})
+		\item \textbf{not} (bfactor \textbf{or} \textbf{false} \textbf{and} \textbf{true})
+		\item \textbf{not} (\textbf{true} \textbf{or} \textbf{false} \textbf{and} \textbf{true})
+	\end{enumerate}
+	
+	\newpage
+	\subsection*{d)}
+	
+	Using leftmost deviation \\
+	
+	\begin{forest}
+		[bexpr
+			[bterm
+				[bfactor
+					[\textbf{not}]
+					[bfactor
+						[\textbf{(}]
+						[bexpr
+							[bexpr
+								[bterm
+									[bfactor
+										[\textbf{true}]
+									]
+								]
+							]
+							[\textbf{or}]
+							[bterm
+								[bterm
+									[bfactor
+										[\textbf{false}]
+									]
+								]
+								[\textbf{and}]
+								[bfactor
+									[\textbf{true}]
+								]
+							]
+						]
+						[\textbf{)}]
+					]
+				]
+			]
+		]
+	\end{forest}
+	
+	\newpage
+	\section{Question 2}
+	
+	以 \textbf{true} \textbf{or} \textbf{false} \textbf{and} \textbf{true}  來看
+	
+	\subsection*{Tree 1}
+	\begin{forest}
+		[bexpr
+			[bexpr
+				[\textbf{true}]
+			]
+			[\textbf{or}]
+			[bexpr
+				[bexpr
+					[\textbf{false}]
+				]
+				[\textbf{and}]
+				[bexpr
+					[\textbf{true}]
+				]
+			]
+		]
+	\end{forest}
+	
+	\subsection*{Tree 2}
+	\begin{forest}
+		[bexpr
+			[bexpr
+				[bexpr
+					[\textbf{true}]
+				]
+				[\textbf{or}]
+				[bexpr
+					[\textbf{false}]
+				]
+			]
+			[\textbf{and}]
+			[bexpr
+				[\textbf{true}]
+			]
+		]
+	\end{forest}
+	
+	\newpage
+	\section{Question 3}
+	
+	\subsection*{a)}
+	
+	Rules are: \\
+	\begin{enumerate}
+		\item $expr \rightarrow \epsilon$
+		\item $expr \rightarrow 1expr$
+		\item $expr \rightarrow 01expr$
+	\end{enumerate}
+	
+	\subsection*{b)}
+	
+	Rules are: \\
+	\begin{enumerate}
+		\item $expr \rightarrow \epsilon$
+		\item $expr \rightarrow 0expr1$
+		\item $expr \rightarrow 1expr0$
+	\end{enumerate}
+	
+\end{document}
