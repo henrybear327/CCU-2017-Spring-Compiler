@@ -89,8 +89,6 @@
 	\newpage
 	\subsection*{d)}
 	
-	Using leftmost deviation \\
-	
 	\begin{forest}
 		[bexpr
 			[bterm
@@ -183,11 +181,16 @@
 	
 	\subsection*{b)}
 	
+	For strings $10, 01, 1100, 0011, 1001, 0110, ...$\\
 	Rules are: \\
 	\begin{enumerate}
 		\item $expr \rightarrow \epsilon$
 		\item $expr \rightarrow 0expr1$
 		\item $expr \rightarrow 1expr0$
+		\item $expr \rightarrow 10expr$
+		\item $expr \rightarrow 01expr$
+		\item $expr \rightarrow expr10$
+		\item $expr \rightarrow expr01$
 	\end{enumerate}
 	
 \end{document}

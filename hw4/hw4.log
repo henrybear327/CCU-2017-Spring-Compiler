@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  17 APR 2017 14:02
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  17 APR 2017 14:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1727,40 +1727,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--51
  []
 
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 127.
+(Font)              <12> on input line 125.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 127.
+(Font)              <8> on input line 125.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 127.
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+(Font)              <6> on input line 125.
+ [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--187
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 193.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 193.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
  (./hw4.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 193.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 193.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 196.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
  48084 strings out of 493591
  1078363 string characters out of 6143546
- 1030732 words of memory out of 5000000
+ 1030839 words of memory out of 5000000
  51009 multiletter control sequences out of 15000+600000
  7793 words of font info for 45 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 182i,9n,195p,10355b,3532s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 182i,9n,195p,10355b,3534s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on hw4.pdf (6 pages).
