@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  7 APR 2017 20:36
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  7 APR 2017 21:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**HW2.tex
-(./HW2.tex
+**hw3.tex
+(./hw3.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
@@ -955,11 +955,11 @@ Package pdftexcmds Info: \pdfdraftmode not found.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/catchfile.sty
 Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
 )
-runsystem(uname -s > "HW2.w18")...executed.
+runsystem(uname -s > "hw3.w18")...executed.
 
 
-(./HW2.w18)
-runsystem(rm -- "HW2.w18")...executed.
+(./hw3.w18)
+runsystem(rm -- "hw3.w18")...executed.
 
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -1016,9 +1016,9 @@ LaTeX Info: Redefining \\ on input line 3056.
 \@float@every@listing=\toks22
 \c@listing=\count153
 )
-runsystem(mkdir -p "_minted-HW2")...executed.
+runsystem(mkdir -p "_minted-hw3")...executed.
 
- (./_minted-HW2/default.pygstyle) (./_minted-HW2/friendly.pygstyle)
+ (./_minted-hw3/default.pygstyle) (./_minted-hw3/friendly.pygstyle)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2016/05/05 v6.83n Hypertext links for LaTeX
 
@@ -1134,17 +1134,17 @@ tly
 )
 \Hy@SectionHShift=\skip58
 )
-runsystem(which "pygmentize" && touch "HW2.aex")...executed.
+runsystem(which "pygmentize" && touch "hw3.aex")...executed.
 
-runsystem(rm "HW2.aex")...executed.
+runsystem(rm "hw3.aex")...executed.
 
 
 
 LaTeX Warning: Unused global option(s):
     [A4].
 
-(./HW2.aux)
-\openout1 = `HW2.aux'.
+(./hw3.aux)
+\openout1 = `hw3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
@@ -1251,7 +1251,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(./_minted-HW2/default-pyg-prefix.pygstyle)
+(./_minted-hw3/default-pyg-prefix.pygstyle)
 \AtBeginShipoutBox=\box53
 Package hyperref Info: Link coloring OFF on input line 37.
 
@@ -1267,9 +1267,9 @@ LaTeX Info: Redefining \ref on input line 37.
 LaTeX Info: Redefining \pageref on input line 37.
 LaTeX Info: Redefining \nameref on input line 37.
 
-(./HW2.out) (./HW2.out)
+(./hw3.out) (./hw3.out)
 \@outlinefile=\write6
-\openout6 = `HW2.out'.
+\openout6 = `hw3.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 40.
@@ -1280,68 +1280,105 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 45.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 45.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 45.
+File: Question1.png Graphic file (type QTm)
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--51
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--64
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--71
-
+<use  "Question1.png" >
+Overfull \hbox (80.38287pt too wide) in paragraph at lines 43--44
+[] 
  []
 
 [1
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 74--84
-
+] [2]
+File: Question2.png Graphic file (type QTm)
+ <use  "Question2.png" >
+Overfull \hbox (78.5782pt too wide) in paragraph at lines 49--50
+[] 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 91--94
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--102
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--115
-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
 [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
- (./HW2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 116.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 116.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 55.
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--66
+
+ []
+
+[4]
+File: Question3.png Graphic file (type QTm)
+ <use  "Question3.png" >
+Overfull \hbox (33.1612pt too wide) in paragraph at lines 67--68
+[][] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
+[5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+ (./hw3.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 69.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 69.
  ) 
 Here is how much of TeX's memory you used:
- 26309 strings out of 493591
- 491075 string characters out of 6143546
- 542212 words of memory out of 5000000
- 29513 multiletter control sequences out of 15000+600000
- 7801 words of font info for 46 fonts, out of 8000000 for 9000
+ 26307 strings out of 493591
+ 490407 string characters out of 6143546
+ 541261 words of memory out of 5000000
+ 29501 multiletter control sequences out of 15000+600000
+ 7785 words of font info for 44 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 48i,6n,72p,10343b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,6n,72p,10343b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on HW2.pdf (3 pages).
+Output written on hw3.pdf (5 pages).
