@@ -21,8 +21,6 @@
 
 %%%%%% Coding style %%%%%%
 \usepackage{minted}
-
-% Run in terminal for checking available styles: pygmentize -L styles
 \usemintedstyle{friendly}
 
 \usepackage{hyperref}
@@ -51,6 +49,15 @@
 	
 	\begin{itemize}
 		\item A: 
+			\begin{minted}[
+			linenos=true,
+			autogobble=true,
+			]{c}
+			int main() {
+				printf("hello, world");
+				return 0;
+			}
+			\end{minted}
 		\item B:
 		\item C:
 		\item D:
