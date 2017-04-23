@@ -68,7 +68,7 @@
 	
 	\begin{itemize}
         \begin{minted}{c}
-        const int a = 1, b = 2, c = 3, d = 4, e = 5, END = 6;
+        const int a = 1, b = 2, c = 3, d = 4, e = 5;
         int token = lexer();
         void match(int t)
         {
@@ -94,9 +94,7 @@
                         D();
                         match(e);
                         break;
-                    case END:
-                        break;
-                    default:
+                   default:
                         error();
                 }
             }
@@ -113,9 +111,6 @@
                     case b:
                         match(b);
                         break;
-                    case END:
-                        match(END);
-                        break;
                     default:
                         error();
                 }
@@ -130,9 +125,6 @@
                         C();
                         match(d);
                         break;
-                    case END:
-                        match(END);
-                        break;
                     default:
                         error();
                 }
@@ -146,9 +138,6 @@
                     case d:
                         match(d);
                         D();
-                        break;
-                    case END:
-                        match(END);
                         break;
                     default:
                         error();

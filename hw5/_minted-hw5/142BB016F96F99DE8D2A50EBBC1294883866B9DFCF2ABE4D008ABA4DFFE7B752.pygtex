@@ -8,9 +8,6 @@
         \PYG{k}{case} \PYG{n+nl}{b}\PYG{p}{:}
             \PYG{n}{match}\PYG{p}{(}\PYG{n}{b}\PYG{p}{);}
             \PYG{k}{break}\PYG{p}{;}
-        \PYG{k}{case} \PYG{n+nl}{END}\PYG{p}{:}
-            \PYG{n}{match}\PYG{p}{(}\PYG{n}{END}\PYG{p}{);}
-            \PYG{k}{break}\PYG{p}{;}
         \PYG{k}{default}\PYG{o}{:}
             \PYG{n}{error}\PYG{p}{();}
     \PYG{p}{\PYGZcb{}}

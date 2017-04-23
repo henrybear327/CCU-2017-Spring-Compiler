@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2017.4.23)  23 APR 2017 23:20
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2017.4.23)  23 APR 2017 23:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1853,46 +1853,123 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  (./_minted-hw5/default-pyg-prefix.pygstyle)
 (./_minted-hw5/friendly.pygstyle)
-(./_minted-hw5/9DCDAE123ADEF01F91692FB85D1FDBD83866B9DFCF2ABE4D008ABA4DFFE7B752
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"hw5.pyg\")), \"r\", encodin
+g=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.expanduser(os.path.
+expandvars(\"hw5.pyg\")), \"w\", encoding=\"UTF8\"); fvstartnum = 0; fvstopnum 
+= 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 
+0 else len(t); [f.write(textwrap.dedent(\"\".join(x))) for x in (t[0:s], t[s:e]
+, t[e:]) if x]; f.close();")...executed.
+
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-hw5/805941687804D8EC41329681EBEE48CF3866B9DFCF2ABE4D008ABA4DFFE7B752.pygtex h
+w5.pyg)...executed.
+
+
+(./_minted-hw5/805941687804D8EC41329681EBEE48CF3866B9DFCF2ABE4D008ABA4DFFE7B752
 .pygtex
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
 )
 \openout5 = `hw5.pyg'.
 
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"hw5.pyg\")), \"r\", encodin
+g=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.expanduser(os.path.
+expandvars(\"hw5.pyg\")), \"w\", encoding=\"UTF8\"); fvstartnum = 0; fvstopnum 
+= 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 
+0 else len(t); [f.write(textwrap.dedent(\"\".join(x))) for x in (t[0:s], t[s:e]
+, t[e:]) if x]; f.close();")...executed.
 
-(./_minted-hw5/25CEB89ABC80240F01255103B262F1FE3866B9DFCF2ABE4D008ABA4DFFE7B752
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-hw5/FA1CFFCE58A21D5218710EDE975FAE923866B9DFCF2ABE4D008ABA4DFFE7B752.pygtex h
+w5.pyg)...executed.
+
+
+(./_minted-hw5/FA1CFFCE58A21D5218710EDE975FAE923866B9DFCF2ABE4D008ABA4DFFE7B752
 .pygtex) [3]
 \openout5 = `hw5.pyg'.
 
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"hw5.pyg\")), \"r\", encodin
+g=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.expanduser(os.path.
+expandvars(\"hw5.pyg\")), \"w\", encoding=\"UTF8\"); fvstartnum = 0; fvstopnum 
+= 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 
+0 else len(t); [f.write(textwrap.dedent(\"\".join(x))) for x in (t[0:s], t[s:e]
+, t[e:]) if x]; f.close();")...executed.
 
-(./_minted-hw5/7A3FD11E60460A9C4759C5A9752824813866B9DFCF2ABE4D008ABA4DFFE7B752
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-hw5/142BB016F96F99DE8D2A50EBBC1294883866B9DFCF2ABE4D008ABA4DFFE7B752.pygtex h
+w5.pyg)...executed.
+
+
+(./_minted-hw5/142BB016F96F99DE8D2A50EBBC1294883866B9DFCF2ABE4D008ABA4DFFE7B752
 .pygtex)
 \openout5 = `hw5.pyg'.
 
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"hw5.pyg\")), \"r\", encodin
+g=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.expanduser(os.path.
+expandvars(\"hw5.pyg\")), \"w\", encoding=\"UTF8\"); fvstartnum = 0; fvstopnum 
+= 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 
+0 else len(t); [f.write(textwrap.dedent(\"\".join(x))) for x in (t[0:s], t[s:e]
+, t[e:]) if x]; f.close();")...executed.
 
-(./_minted-hw5/DC69B8F4722F88AC73605B07A17BFC943866B9DFCF2ABE4D008ABA4DFFE7B752
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-hw5/5B8DF80AF386AEECE303DB373030B6293866B9DFCF2ABE4D008ABA4DFFE7B752.pygtex h
+w5.pyg)...executed.
+
+
+(./_minted-hw5/5B8DF80AF386AEECE303DB373030B6293866B9DFCF2ABE4D008ABA4DFFE7B752
 .pygtex) [4]
 \openout5 = `hw5.pyg'.
 
+runsystem(python -c "import sys; import os; import textwrap; from io import ope
+n; f = open(os.path.expanduser(os.path.expandvars(\"hw5.pyg\")), \"r\", encodin
+g=\"UTF8\"); t = f.readlines(); f.close(); f = open(os.path.expanduser(os.path.
+expandvars(\"hw5.pyg\")), \"w\", encoding=\"UTF8\"); fvstartnum = 0; fvstopnum 
+= 0; s = fvstartnum-1 if fvstartnum != 0 else 0; e = fvstopnum if fvstopnum != 
+0 else len(t); [f.write(textwrap.dedent(\"\".join(x))) for x in (t[0:s], t[s:e]
+, t[e:]) if x]; f.close();")...executed.
 
-(./_minted-hw5/CD8616FA54A187230124007E0DA3CCD23866B9DFCF2ABE4D008ABA4DFFE7B752
-.pygtex) [5] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-hw5/1A9AAEC8F5497D583BA00D3C548B97D63866B9DFCF2ABE4D008ABA4DFFE7B752.pygtex h
+w5.pyg)...executed.
+
+
+(./_minted-hw5/1A9AAEC8F5497D583BA00D3C548B97D63866B9DFCF2ABE4D008ABA4DFFE7B752
+.pygtex) [5]
+runsystem(rm _minted-hw5/9DCDAE123ADEF01F91692FB85D1FDBD83866B9DFCF2ABE4D008ABA
+4DFFE7B752.pygtex)...executed.
+
+runsystem(rm _minted-hw5/25CEB89ABC80240F01255103B262F1FE3866B9DFCF2ABE4D008ABA
+4DFFE7B752.pygtex)...executed.
+
+runsystem(rm _minted-hw5/7A3FD11E60460A9C4759C5A9752824813866B9DFCF2ABE4D008ABA
+4DFFE7B752.pygtex)...executed.
+
+runsystem(rm _minted-hw5/DC69B8F4722F88AC73605B07A17BFC943866B9DFCF2ABE4D008ABA
+4DFFE7B752.pygtex)...executed.
+
+runsystem(rm _minted-hw5/CD8616FA54A187230124007E0DA3CCD23866B9DFCF2ABE4D008ABA
+4DFFE7B752.pygtex)...executed.
+
+ [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
  (./hw5.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 181.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 181.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 170.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 170.
 runsystem(rm hw5.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 46176 strings out of 493068
- 1025909 string characters out of 6137720
+ 46181 strings out of 493068
+ 1026229 string characters out of 6137720
  1079659 words of memory out of 5000000
  49581 multiletter control sequences out of 15000+600000
  7801 words of font info for 46 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 61i,7n,69p,10355b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,7n,69p,10355b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on hw5.pdf (6 pages).

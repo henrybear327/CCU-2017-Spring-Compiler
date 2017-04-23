@@ -12,9 +12,7 @@
             \PYG{n}{D}\PYG{p}{();}
             \PYG{n}{match}\PYG{p}{(}\PYG{n}{e}\PYG{p}{);}
             \PYG{k}{break}\PYG{p}{;}
-        \PYG{k}{case} \PYG{n+nl}{END}\PYG{p}{:}
-            \PYG{k}{break}\PYG{p}{;}
-        \PYG{k}{default}\PYG{o}{:}
+       \PYG{k}{default}\PYG{o}{:}
             \PYG{n}{error}\PYG{p}{();}
     \PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
