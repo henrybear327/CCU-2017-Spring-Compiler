@@ -4,6 +4,8 @@
 % sudo easy_install Pygments
 % Add -shell-escape to compile flag
 
+% Options -> Editor -> Indentation mode -> replace tab by space!! -> avoids ^^I issue in code
+
 \documentclass[12pt, A4]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[linguistics]{forest}
@@ -22,6 +24,10 @@
 %%%%%% Coding style %%%%%%
 \usepackage{minted}
 \usemintedstyle{friendly}
+\setminted[c]{
+    linenos=true,
+    autogobble=true,
+}
 
 \usepackage{hyperref}
 
@@ -42,42 +48,131 @@
 	
 	\begin{itemize}
 		\item First set: 
+            \begin{itemize}
+                \item first(A) = \{a, b, c, d, e, $\epsilon$\}
+                \item first(B) = \{a, b, $\epsilon$\}
+                \item first(C) = \{c, $\epsilon$\}
+                \item first(D) = \{d, $\epsilon$\}
+            \end{itemize}
 		\item Follow set:
+            \begin{itemize}
+                \item follow(A) = \{\$\}
+                \item follow(B) = \{c, \$\}
+                \item follow(C) = \{d, \$\}
+                \item follow(D) = \{e\}
+            \end{itemize}
 	\end{itemize}
 	
+    \newpage
 	\subsection*{b) Procedures of recursive-decent parser}
 	
 	\begin{itemize}
+        \begin{minted}{c}
+        const int a = 1, b = 2, c = 3, d = 4, e = 5, END = 6;
+        int token = lexer();
+        void match(int t)
+        {
+            if (token == t)
+                token = lexer();
+            else
+                error();
+        }
+        \end{minted}
+        
 		\item A: 
-			\begin{minted}[
-			linenos=true,
-			autogobble=true,
-			]{c}
-			int main() {
-				printf("hello, world");
-				return 0;
-			}
+			\begin{minted}{c}
+            void A() {
+                switch (token) {
+                    case a:
+                    case b:
+                    case c:
+                        B();
+                        C();
+                        break;
+                    case d:
+                    case e:
+                        D();
+                        match(e);
+                        break;
+                    case END:
+                        break;
+                    default:
+                        error();
+                }
+            }
 			\end{minted}
+        \newpage
 		\item B:
+            \begin{minted}{c}
+            void B() {
+                switch (token) {
+                    case a:
+                        match(a);
+                        B();
+                        break;
+                    case b:
+                        match(b);
+                        break;
+                    case END:
+                        match(END);
+                        break;
+                    default:
+                        error();
+                }
+            }
+            \end{minted}
 		\item C:
+            \begin{minted}{c}
+            void C() {
+                switch (token) {
+                    case c:
+                        match(c);
+                        C();
+                        match(d);
+                        break;
+                    case END:
+                        match(END);
+                        break;
+                    default:
+                        error();
+                }
+            }
+            \end{minted}
+        \newpage
 		\item D:
+            \begin{minted}{c}
+            void D() {
+                switch (token) {
+                    case d:
+                        match(d);
+                        D();
+                        break;
+                    case END:
+                        match(END);
+                        break;
+                    default:
+                        error();
+                }
+            }
+            \end{minted}
 	\end{itemize}
 	
+    \newpage
 	\subsection*{c) Parsing table of table-driven predictive parser}
 	
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline 
 		   & A & B & C & D \\ 
 		\hline 
-		a  &  &  &  &  \\ 
+		a  & A $\rightarrow$ BC & B $\rightarrow$ aB &  &  \\ 
 		\hline 
-		b  &  &  &  &  \\ 
+		b  & A $\rightarrow$ BC & B $\rightarrow$ b  &  &  \\ 
 		\hline 
-		c  &  &  &  &  \\ 
+		c  & A $\rightarrow$ BC & & C $\rightarrow$ cCd &  \\ 
 		\hline 
-		d  &  &  &  &  \\ 
+		d  & A $\rightarrow$ De & & & D $\rightarrow$ dD \\ 
 		\hline 
-		e  &  &  &  &  \\ 
+		e  & A $\rightarrow$ De & & &  \\ 
 		\hline 
 		\$ &  &  &  &  \\ 
 		\hline 
