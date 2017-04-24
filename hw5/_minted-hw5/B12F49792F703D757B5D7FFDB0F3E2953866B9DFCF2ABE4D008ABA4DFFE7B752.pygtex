@@ -5,6 +5,8 @@
             \PYG{n}{match}\PYG{p}{(}\PYG{n}{d}\PYG{p}{);}
             \PYG{n}{D}\PYG{p}{();}
             \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{e}\PYG{p}{:}
+            \PYG{k}{break}\PYG{p}{;}
         \PYG{k}{default}\PYG{o}{:}
             \PYG{n}{error}\PYG{p}{();}
     \PYG{p}{\PYGZcb{}}
