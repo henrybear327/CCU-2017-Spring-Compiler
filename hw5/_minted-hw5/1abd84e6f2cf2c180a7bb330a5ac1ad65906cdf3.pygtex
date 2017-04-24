@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{A}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{token}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{case} \PYG{n+nl}{a}\PYG{p}{:}
+        \PYG{k}{case} \PYG{n+nl}{b}\PYG{p}{:}
+        \PYG{k}{case} \PYG{n+nl}{c}\PYG{p}{:}
+            \PYG{n}{B}\PYG{p}{();}
+            \PYG{n}{C}\PYG{p}{();}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{d}\PYG{p}{:}
+        \PYG{k}{case} \PYG{n+nl}{e}\PYG{p}{:}
+            \PYG{n}{D}\PYG{p}{();}
+            \PYG{n}{match}\PYG{p}{(}\PYG{n}{e}\PYG{p}{);}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{case} \PYG{n+nl}{END}\PYG{p}{:}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{k}{default}\PYG{o}{:}
+            \PYG{n}{error}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
