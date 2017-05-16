@@ -30,8 +30,8 @@ public class CactusParser extends Parser {
 	private static final String[] _LITERAL_NAMES = {
 		null, "'else'", "'fi'", "'if'", "'int'", "'main'", "'return'", "'while'", 
 		"'read'", "'write'", null, "';'", null, null, null, "'+'", "'-'", "'*'", 
-		"'/'", "'%'", null, "'!='", "'>'", "'>='", "'<'", "'<='", "'&&'", "'||'", 
-		"'!'", null, "'{'", "'}'", "'('", "')'"
+		"'/'", "'%'", "'='", "'!='", "'>'", "'>='", "'<'", "'<='", "'&&'", "'||'", 
+		"'!'", "'=='", "'{'", "'}'", "'('", "')'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "ELSE", "FI", "IF", "INT", "MAIN", "RETURN", "WHILE", "READ", "WRITE", 

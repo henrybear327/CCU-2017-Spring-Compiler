@@ -40,7 +40,7 @@ LESSEQUAL: '<=';
 LOGICALAND: '&&';
 LOGICALOR: '||';
 NOT: '!';
-EQUAL: '=';
+EQUAL: '==';
 LEFTPARENTHESIS: '{';
 RIGHTPARENTHESIS: '}';
 LEFTBRACE: '(';
