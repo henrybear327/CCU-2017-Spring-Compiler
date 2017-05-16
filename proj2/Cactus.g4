@@ -1,5 +1,7 @@
 grammar Cactus;
 
+// https://github.com/antlr/antlr4/blob/master/doc/lexer-rules.md
+
 // parser rules
 program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE declarations statements RIGHTBRACE;
 declarations: INT ID SEMICOLON declarations | /* epsilon */ ;
