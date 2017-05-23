@@ -136,6 +136,7 @@
         $R \rightarrow .\ L$& 
         \begin{lstlisting}[language=c]
         R.val = L.val
+        L.side = R.side;
         \end{lstlisting}
         \\ 
         \hline 
@@ -148,20 +149,22 @@
         $L \rightarrow B\ L_s$&
         \begin{lstlisting}[language=c]
         L.len = 1 + Ls.len; 
+        Ls.side = L.side;
         
         L.val = (L.side == 1) ? 
-                B.val * 2^(L.len - 1) + Ls.val : 
-                B.val / 2 : Ls.val / 2;}
+                B.val * (2^(L.len - 1)) + Ls.val : 
+                B.val / 2 + Ls.val / 2;}
         \end{lstlisting}
         \\ 
         \hline 
         $L_s \rightarrow B\ L_{s1}$&
         \begin{lstlisting}[language=c]
         Ls.len = 1 + Ls1.len; 
+        Ls1.side = Ls.side;
         
         Ls.val = (Ls.side == 1) ? 
-                B.val * 2^(Ls.len - 1) + Ls1.val : 
-                B.val / 2 : Ls1.val / 2;}
+                B.val * (2^(Ls.len - 1)) + Ls1.val : 
+                B.val / 2 + Ls1.val / 2;}
         \end{lstlisting}
         \\ 
         \hline 
