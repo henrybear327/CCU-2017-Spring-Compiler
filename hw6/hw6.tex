@@ -48,27 +48,66 @@
 	
 	\subsection*{a) S-attributed attribute grammar}
     
-    Assume \mintinline{c}{side = 1} means left-hand side, and \mintinline{c}{side = 0} means right-hand side\\
-    
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|l|}
         \hline 
         production & semantic rules\\
         \hline 
-        $S \rightarrow L\ R$& \\ 
+        $S \rightarrow L\ R$& 
+        \begin{lstlisting}[language=c]
+        S.val = L.val + R.val / R.base;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $R \rightarrow .\ L$&  \\ 
+        $R \rightarrow .\ L$& 
+        \begin{lstlisting}[language=c]
+        R.val = L.val
+        R.base = L.base;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $R \rightarrow \epsilon$&  \\ 
+        $R \rightarrow \epsilon$& 
+        \begin{lstlisting}[language=c]
+        R.val = 0;
+        R.base = 0;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $L \rightarrow B\ L_s$&  \\ 
+        $L \rightarrow B\ L_s$&
+        \begin{lstlisting}[language=c]
+        L.base = Ls.base;
+        L.val = B.val * L.base + Ls.val;
+        
+        L.base *= 2;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $L_s \rightarrow B\ L_{s1}$&  \\ 
+        $L_s \rightarrow B\ L_{s1}$&
+        \begin{lstlisting}[language=c]
+        Ls.base = Ls1.base;
+        Ls.val = B.val * Ls.base + Ls1.val;
+        
+        Ls.base *= 2;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $L_s \rightarrow \epsilon$&  \\ 
+        $L_s \rightarrow \epsilon$& 
+        \begin{lstlisting}[language=c]
+        Ls.base = 1;
+        Ls.val = 0;
+        \end{lstlisting}
+        \\ 
         \hline 
-        $B \rightarrow 0$&  \\ 
+        $B \rightarrow 0$&
+        \begin{lstlisting}[language=c]
+        B.val = 0;
+        \end{lstlisting}
+        \\  
         \hline 
-        $B \rightarrow 1$&  \\ 
+        $B \rightarrow 1$&
+        \begin{lstlisting}[language=c]
+        B.val = 1;
+        \end{lstlisting}
+        \\ 
         \hline 
     \end{tabular} 
 	
@@ -82,7 +121,7 @@
     
     \noindent Assume \mintinline{c}{2^x} in the code means 2 to the power of x\\
         
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|l|}
         \hline 
         production & semantic rules\\
         \hline 
@@ -118,11 +157,11 @@
         \hline 
         $L_s \rightarrow B\ L_{s1}$&
         \begin{lstlisting}[language=c]
-        L.len = 1 + Ls.len; 
+        Ls.len = 1 + Ls1.len; 
         
-        L.val = (L.side == 1) ? 
-                B.val * 2^(L.len - 1) + Ls.val : 
-                B.val / 2 : Ls.val / 2;}
+        Ls.val = (Ls.side == 1) ? 
+                B.val * 2^(Ls.len - 1) + Ls1.val : 
+                B.val / 2 : Ls1.val / 2;}
         \end{lstlisting}
         \\ 
         \hline 
