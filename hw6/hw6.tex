@@ -1,0 +1,153 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% sudo easy_install Pygments
+% Add -shell-escape to compile flag
+
+% Options -> Editor -> Indentation mode -> replace tab by space!! -> avoids ^^I issue in code
+
+\documentclass[12pt, A4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[linguistics]{forest}
+\usepackage{listings}
+
+%%%%%% Font setting %%%%%%
+
+\usepackage{fontspec} %加這個就可以設定字體 
+
+\usepackage{xeCJK} %讓中英文字體分開設置
+
+\setCJKmainfont{Noto Sans CJK TC} %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+%\setCJKmainfont{STKaiti}
+
+\XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt 
+
+%%%%%% Coding style %%%%%%
+\usepackage{minted}
+\usemintedstyle{friendly}
+\setminted[c]{
+    linenos=true,
+    autogobble=true,
+}
+
+\usepackage{hyperref}
+
+%%%%%% 文件正式開始 %%%%%%
+
+\title{Compiler \\ Assignment 6 \\ Attribute Grammars and Top-Down Translator}
+\author{403410033 \ 資工三 \ 曾俊宏}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\newpage
+
+	\section{Question 1}
+	
+	\subsection*{a) S-attributed attribute grammar}
+    
+    Assume \mintinline{c}{side = 1} means left-hand side, and \mintinline{c}{side = 0} means right-hand side\\
+    
+    \begin{tabular}{|c|c|}
+        \hline 
+        production & semantic rules\\
+        \hline 
+        $S \rightarrow L\ R$& \\ 
+        \hline 
+        $R \rightarrow .\ L$&  \\ 
+        \hline 
+        $R \rightarrow \epsilon$&  \\ 
+        \hline 
+        $L \rightarrow B\ L_s$&  \\ 
+        \hline 
+        $L_s \rightarrow B\ L_{s1}$&  \\ 
+        \hline 
+        $L_s \rightarrow \epsilon$&  \\ 
+        \hline 
+        $B \rightarrow 0$&  \\ 
+        \hline 
+        $B \rightarrow 1$&  \\ 
+        \hline 
+    \end{tabular} 
+	
+    \newpage
+	\subsection*{b) S-attributed attribute grammar $\rightarrow$ top-down translator}
+	
+    \newpage
+	\subsection*{c) L-attributed attribute grammar}
+    
+    Assume \mintinline{c}{side = 1} means left-hand side, and \mintinline{c}{side = 0} means right-hand side\\
+    
+    \noindent Assume \mintinline{c}{2^x} in the code means 2 to the power of x\\
+        
+    \begin{tabular}{|c|c|}
+        \hline 
+        production & semantic rules\\
+        \hline 
+        $S \rightarrow L\ R$& 
+        \begin{lstlisting}[language=c]
+        L.side = 1; 
+        R.side = 0; 
+        S.val = L.val + R.val;
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $R \rightarrow .\ L$& 
+        \begin{lstlisting}[language=c]
+        R.val = L.val
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $R \rightarrow \epsilon$& 
+        \begin{lstlisting}[language=c]
+        R.val = 0;
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $L \rightarrow B\ L_s$&
+        \begin{lstlisting}[language=c]
+        L.len = 1 + Ls.len; 
+        
+        L.val = (L.side == 1) ? 
+                B.val * 2^(L.len - 1) + Ls.val : 
+                B.val / 2 : Ls.val / 2;}
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $L_s \rightarrow B\ L_{s1}$&
+        \begin{lstlisting}[language=c]
+        L.len = 1 + Ls.len; 
+        
+        L.val = (L.side == 1) ? 
+                B.val * 2^(L.len - 1) + Ls.val : 
+                B.val / 2 : Ls.val / 2;}
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $L_s \rightarrow \epsilon$& 
+        \begin{lstlisting}[language=c]
+        Ls.len = 0;
+        Ls.val = 0;
+        \end{lstlisting}
+        \\ 
+        \hline 
+        $B \rightarrow 0$&
+        \begin{lstlisting}[language=c]
+        B.val = 0;
+        \end{lstlisting}
+        \\  
+        \hline 
+        $B \rightarrow 1$&
+        \begin{lstlisting}[language=c]
+        B.val = 1;
+        \end{lstlisting}
+        \\ 
+        \hline 
+    \end{tabular} 
+    
+    \newpage
+    \subsection*{d) L-attributed attribute grammar $\rightarrow$ top-down translator}
+	
+\end{document}
