@@ -1,0 +1,2 @@
+pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o "hw5.out.pyg" "hw5.pyg" 
+autogobble
