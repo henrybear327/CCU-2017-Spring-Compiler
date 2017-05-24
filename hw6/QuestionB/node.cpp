@@ -1,9 +1,9 @@
 typedef struct node {
-    int val;
+    double val;
     int base;
 } Node;
 
-Node mknode(int base, int val)
+Node mknode(int base, double val)
 {
     Node *res = (Node *)malloc(sizeof(Node));
     res.base = base;

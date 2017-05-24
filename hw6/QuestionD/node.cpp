@@ -1,13 +1,21 @@
 typedef struct node {
-	int val;
-	int base;
+    double val;
+    int base;
 } Node;
 
-Node mknode(int base, int val)
+Node mknode(int base, double val)
 {
-	Node* res = (Node*)malloc(sizeof(Node));
-	res.base = base;
-	res.val = val;
+    Node *res = (Node *)malloc(sizeof(Node));
+    res.base = base;
+    res.val = val;
 
-	return res;
+    return res;
+}
+
+int getPower(int power)
+{
+    int res = 1;
+    for (int i = 1; i <= power; i++)
+        res *= 2;
+    return res;
 }
