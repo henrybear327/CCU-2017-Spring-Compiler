@@ -1,14 +1,23 @@
-void S()
+double *S()
 {
+    Node *Lnptr, *Rnptr;
+    Node *res;
+
     switch (token) {
     case 0:
     case 1:
-        L();
-        R();
+        Lnptr = L(1);
+        Rnptr = R(0);
+
+        res = Rnptr;
+        res.val = Lnptr.val + Rnptr.val;
         break;
     case '$':
+        res = mknode(1, 0);
         break;
     default:
         error();
     }
+
+    return res.val;
 }

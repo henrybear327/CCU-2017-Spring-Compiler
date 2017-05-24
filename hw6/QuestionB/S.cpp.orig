@@ -1,4 +1,4 @@
-Node *S() {
+double *S() {
   Node *Lnptr, *Rnptr;
   Node *res;
   switch (token) {
@@ -17,5 +17,5 @@ Node *S() {
     error();
   }
 
-  return res;
+  return res.val;
 }

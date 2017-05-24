@@ -1,4 +1,4 @@
-Node *S()
+double *S()
 {
     Node *Lnptr, *Rnptr;
     Node *res;
@@ -18,5 +18,5 @@ Node *S()
         error();
     }
 
-    return res;
+    return res.val;
 }
