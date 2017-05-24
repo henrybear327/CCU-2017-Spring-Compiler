@@ -17,8 +17,8 @@
 
 \usepackage{xeCJK} %讓中英文字體分開設置
 
-\setCJKmainfont{Noto Sans CJK TC} %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
-%\setCJKmainfont{STKaiti}
+%\setCJKmainfont{Noto Sans CJK TC} %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+\setCJKmainfont{STKaiti}
 
 \XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
 \XeTeXlinebreakskip = 0pt plus 1pt 
@@ -113,7 +113,19 @@
 	
     \newpage
 	\subsection*{b) S-attributed attribute grammar $\rightarrow$ top-down translator}
-	
+    
+    $.$ and $\$$ are surrounded by single quotation mark due to latex rendering issue. \\
+    
+    \inputminted{c++}{QuestionB/S.cpp}
+    
+    \inputminted{c++}{QuestionB/R.cpp}
+    
+    \inputminted{c++}{QuestionB/L.cpp}
+    
+    \inputminted{c++}{QuestionB/Ls.cpp}
+    
+    \inputminted{c++}{QuestionB/B.cpp}
+    
     \newpage
 	\subsection*{c) L-attributed attribute grammar}
     
@@ -191,5 +203,17 @@
     
     \newpage
     \subsection*{d) L-attributed attribute grammar $\rightarrow$ top-down translator}
+    
+    $.$ and $\$$ are surrounded by single quotation mark due to latex rendering issue.\\
+    
+    \inputminted{c++}{QuestionB/S.cpp}
+    
+    \inputminted{c++}{QuestionB/R.cpp}
+    
+    \inputminted{c++}{QuestionB/L.cpp}
+    
+    \inputminted{c++}{QuestionB/Ls.cpp}
+    
+    \inputminted{c++}{QuestionB/B.cpp}
 	
 \end{document}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{L}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{token}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{l+m+mi}{0}\PYG{o}{:}
+    \PYG{k}{case} \PYG{l+m+mi}{1}\PYG{o}{:}
+        \PYG{n}{B}\PYG{p}{();}
+		\PYG{n}{Ls}\PYG{p}{();}
+        \PYG{k}{break}\PYG{p}{;}
+	\PYG{k}{case} \PYG{l+s+sc}{\PYGZsq{}\PYGZdl{}\PYGZsq{}}\PYG{o}{:}
+		\PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{default}\PYG{o}{:}
+        \PYG{n}{error}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
