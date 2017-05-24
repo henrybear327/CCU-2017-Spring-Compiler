@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n}{node} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{val}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{base}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{Node}\PYG{p}{;}
+
+\PYG{n}{Node} \PYG{n+nf}{mknode}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{base}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{val}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{Node} \PYG{o}{*}\PYG{n}{res} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Node} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Node}\PYG{p}{));}
+    \PYG{n}{res}\PYG{p}{.}\PYG{n}{base} \PYG{o}{=} \PYG{n}{base}\PYG{p}{;}
+    \PYG{n}{res}\PYG{p}{.}\PYG{n}{val} \PYG{o}{=} \PYG{n}{val}\PYG{p}{;}
+
+    \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

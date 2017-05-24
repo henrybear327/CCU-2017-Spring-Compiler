@@ -3,7 +3,7 @@ void R()
     switch (token) {
     case '.':
         match('.');
-        R();
+        L();
         break;
     case '$':
         break;

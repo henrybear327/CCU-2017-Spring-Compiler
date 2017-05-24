@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Node} \PYG{o}{*}\PYG{n+nf}{R}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{Node} \PYG{o}{*}\PYG{n}{Lnptr}\PYG{p}{;}
+    \PYG{n}{Node} \PYG{o}{*}\PYG{n}{res}\PYG{p}{;}
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n}{token}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{case} \PYG{l+s+sc}{\PYGZsq{}.\PYGZsq{}}\PYG{o}{:}
+        \PYG{n}{match}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{);}
+
+        \PYG{n}{Lnptr} \PYG{o}{=} \PYG{n}{L}\PYG{p}{();}
+
+        \PYG{n}{res} \PYG{o}{=} \PYG{n}{Lnptr}\PYG{p}{;}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{case} \PYG{l+s+sc}{\PYGZsq{}\PYGZdl{}\PYGZsq{}}\PYG{o}{:}
+        \PYG{k}{break}\PYG{p}{;}
+    \PYG{k}{default}\PYG{o}{:}
+        \PYG{n}{error}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

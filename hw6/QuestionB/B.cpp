@@ -1,5 +1,7 @@
-void B()
+Node *B()
 {
+    Node *res;
+
     switch (token) {
     default:
     case 0:
@@ -11,4 +13,6 @@ void B()
     default:
         error();
     }
+
+    return res;
 }

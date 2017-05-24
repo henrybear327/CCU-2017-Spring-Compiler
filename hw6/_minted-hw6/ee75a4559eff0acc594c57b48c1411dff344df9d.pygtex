@@ -4,7 +4,7 @@
     \PYG{k}{switch} \PYG{p}{(}\PYG{n}{token}\PYG{p}{)} \PYG{p}{\PYGZob{}}
     \PYG{k}{case} \PYG{l+s+sc}{\PYGZsq{}.\PYGZsq{}}\PYG{o}{:}
         \PYG{n}{match}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{);}
-        \PYG{n}{R}\PYG{p}{();}
+        \PYG{n}{L}\PYG{p}{();}
         \PYG{k}{break}\PYG{p}{;}
     \PYG{k}{case} \PYG{l+s+sc}{\PYGZsq{}\PYGZdl{}\PYGZsq{}}\PYG{o}{:}
         \PYG{k}{break}\PYG{p}{;}
