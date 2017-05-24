@@ -11,6 +11,7 @@ Node *R()
         res = Lnptr;
         break;
     case '$':
+        res = mknode(1, 0);
         break;
     default:
         error();

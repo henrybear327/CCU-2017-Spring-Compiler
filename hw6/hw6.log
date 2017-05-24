@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  24 MAY 2017 11:25
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.10.2)  24 MAY 2017 11:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1755,11 +1755,6 @@ hr(125) + \"\"; f.write(\"\\makeatletter\" + macro + \"\\makeatother\\endinput\
 n \"); f.close();")...executed.
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/c2382b10dc47156807a9fa861d28884d0cf21a6a.pygtex" "QuestionB/node.cpp" 
-)...executed.
-
-
 (./_minted-hw6/c2382b10dc47156807a9fa861d28884d0cf21a6a.pygtex
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 2.
@@ -1775,11 +1770,6 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/312de3d323535e56a7b763f0baacadf7bab6602f.pygtex" "QuestionB/S.cpp" )..
-.executed.
-
-
 (./_minted-hw6/312de3d323535e56a7b763f0baacadf7bab6602f.pygtex) [4]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1793,11 +1783,11 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 (./hw6.mintedmd5)
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/2184e595fe890463ddbaaaa7ba3ef83899dfaa0a.pygtex" "QuestionB/R.cpp" )..
+nted-hw6/58728f005af1f016932e164e0e6ce308a160482a.pygtex" "QuestionB/R.cpp" )..
 .executed.
 
 
-(./_minted-hw6/2184e595fe890463ddbaaaa7ba3ef83899dfaa0a.pygtex) [5]
+(./_minted-hw6/58728f005af1f016932e164e0e6ce308a160482a.pygtex) [5]
 \openout6 = `hw6.mintedcmd'.
 
 runsystem(python -c "import hashlib; hasher = hashlib.sha1(); f = open(\"hw6.mi
@@ -1809,11 +1799,6 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/6b2541d89c8b9a0f83ce1c2aaf01ce4234db5b5a.pygtex" "QuestionB/L.cpp" )..
-.executed.
-
-
 (./_minted-hw6/6b2541d89c8b9a0f83ce1c2aaf01ce4234db5b5a.pygtex) [6]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1826,11 +1811,6 @@ ntedcmd\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"QuestionB/Ls
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/c56c7397a2b67decd272feae87d5c3858e4a7348.pygtex" "QuestionB/Ls.cpp" ).
-..executed.
-
-
 (./_minted-hw6/c56c7397a2b67decd272feae87d5c3858e4a7348.pygtex) [7]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1844,11 +1824,11 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 (./hw6.mintedmd5)
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/881c2d2c54ee5ba6c6f0c604ac91a1a4c920b8a2.pygtex" "QuestionB/B.cpp" )..
+nted-hw6/0a56d396055be3aaf3d17b9a3ecfddbaa3473e13.pygtex" "QuestionB/B.cpp" )..
 .executed.
 
 
-(./_minted-hw6/881c2d2c54ee5ba6c6f0c604ac91a1a4c920b8a2.pygtex) [8]
+(./_minted-hw6/0a56d396055be3aaf3d17b9a3ecfddbaa3473e13.pygtex) [8]
 \openout6 = `hw6.pyg'.
 
 \openout6 = `hw6.mintedcmd'.
@@ -1918,11 +1898,6 @@ hr(125) + \"\"; f.write(\"\\makeatletter\" + macro + \"\\makeatother\\endinput\
 n \"); f.close();")...executed.
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/a702b19e6274ee64cf2cfe4b844335a79615985a.pygtex" "QuestionD/node.cpp" 
-)...executed.
-
-
 (./_minted-hw6/a702b19e6274ee64cf2cfe4b844335a79615985a.pygtex) [10]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1935,11 +1910,6 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/22b91425e46da9c0422802d9b16ed4b806fc334c.pygtex" "QuestionD/S.cpp" )..
-.executed.
-
-
 (./_minted-hw6/22b91425e46da9c0422802d9b16ed4b806fc334c.pygtex) [11]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1952,11 +1922,6 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/ee75a4559eff0acc594c57b48c1411dff344df9d.pygtex" "QuestionD/R.cpp" )..
-.executed.
-
-
 (./_minted-hw6/ee75a4559eff0acc594c57b48c1411dff344df9d.pygtex) [12]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1969,11 +1934,6 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/09ad50d1974ba745f40f2e5996304cda117014de.pygtex" "QuestionD/L.cpp" )..
-.executed.
-
-
 (./_minted-hw6/09ad50d1974ba745f40f2e5996304cda117014de.pygtex) [13]
 \openout6 = `hw6.mintedcmd'.
 
@@ -1986,11 +1946,6 @@ ntedcmd\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"QuestionD/Ls
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/5e8394cf26ed7632b012c9d1987697bca7851200.pygtex" "QuestionD/Ls.cpp" ).
-..executed.
-
-
 (./_minted-hw6/5e8394cf26ed7632b012c9d1987697bca7851200.pygtex) [14]
 \openout6 = `hw6.mintedcmd'.
 
@@ -2003,28 +1958,11 @@ cpp\", \"rb\"); hasher.update(f.read()); f.close(); f = open(\"hw6.mintedmd5\",
 
 
 (./hw6.mintedmd5)
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o "_mi
-nted-hw6/5f901968f3d4ba34f44bc986dd1fbc4603cb3337.pygtex" "QuestionD/B.cpp" )..
-.executed.
-
-
 (./_minted-hw6/5f901968f3d4ba34f44bc986dd1fbc4603cb3337.pygtex)
-runsystem(rm "_minted-hw6/3bc39c2ce48d4fba759fa864df32c4e5fe586750.pygtex")...e
+runsystem(rm "_minted-hw6/2184e595fe890463ddbaaaa7ba3ef83899dfaa0a.pygtex")...e
 xecuted.
 
-runsystem(rm "_minted-hw6/457693eab09098c6eb5274e6e79516bcc5c63c5e.pygtex")...e
-xecuted.
-
-runsystem(rm "_minted-hw6/982a4edd00cba721c4c5a22590644fd34f7a1863.pygtex")...e
-xecuted.
-
-runsystem(rm "_minted-hw6/8dd2192c48c5815e6af0446f26db2cadd7564c3d.pygtex")...e
-xecuted.
-
-runsystem(rm "_minted-hw6/2531dd5454279c85459a1055e43654a0aa45eee0.pygtex")...e
-xecuted.
-
-runsystem(rm "_minted-hw6/9f9c41353b126b95ebb9e05b035c5723863a9dfe.pygtex")...e
+runsystem(rm "_minted-hw6/881c2d2c54ee5ba6c6f0c604ac91a1a4c920b8a2.pygtex")...e
 xecuted.
 
 runsystem(rm "hw6.mintedcmd")...executed.
@@ -2041,9 +1979,9 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 237.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 237.
  ) 
 Here is how much of TeX's memory you used:
- 45418 strings out of 493591
- 971088 string characters out of 6143546
- 1051456 words of memory out of 5000000
+ 45414 strings out of 493591
+ 970928 string characters out of 6143546
+ 1051505 words of memory out of 5000000
  48243 multiletter control sequences out of 15000+600000
  7793 words of font info for 45 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
