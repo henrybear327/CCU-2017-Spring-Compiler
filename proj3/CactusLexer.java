@@ -16,7 +16,7 @@ public class CactusLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, DIGIT=2, WHITESPACE=3;
+		DIGIT=1, DOT=2, WHITESPACE=3;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -26,14 +26,14 @@ public class CactusLexer extends Lexer {
 	};
 
 	public static final String[] ruleNames = {
-		"T__0", "DIGIT", "WHITESPACE"
+		"DIGIT", "DOT", "WHITESPACE"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'.'"
+		null, null, "'.'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, "DIGIT", "WHITESPACE"
+		null, "DIGIT", "DOT", "WHITESPACE"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -96,8 +96,8 @@ public class CactusLexer extends Lexer {
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\5\24\b\1\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\3\2\3\2\3\3\3\3\3\4\6\4\17\n\4\r\4\16\4\20\3\4\3\4\2"+
 		"\2\5\3\3\5\4\7\5\3\2\4\3\2\62\63\5\2\13\f\17\17\"\"\2\24\2\3\3\2\2\2\2"+
-		"\5\3\2\2\2\2\7\3\2\2\2\3\t\3\2\2\2\5\13\3\2\2\2\7\16\3\2\2\2\t\n\7\60"+
-		"\2\2\n\4\3\2\2\2\13\f\t\2\2\2\f\6\3\2\2\2\r\17\t\3\2\2\16\r\3\2\2\2\17"+
+		"\5\3\2\2\2\2\7\3\2\2\2\3\t\3\2\2\2\5\13\3\2\2\2\7\16\3\2\2\2\t\n\t\2\2"+
+		"\2\n\4\3\2\2\2\13\f\7\60\2\2\f\6\3\2\2\2\r\17\t\3\2\2\16\r\3\2\2\2\17"+
 		"\20\3\2\2\2\20\16\3\2\2\2\20\21\3\2\2\2\21\22\3\2\2\2\22\23\b\4\2\2\23"+
 		"\b\3\2\2\2\4\2\20\3\b\2\2";
 	public static final ATN _ATN =

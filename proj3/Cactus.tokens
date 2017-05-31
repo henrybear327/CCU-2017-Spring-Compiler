@@ -1,4 +1,4 @@
-T__0=1
-DIGIT=2
+DIGIT=1
+DOT=2
 WHITESPACE=3
-'.'=1
+'.'=2
