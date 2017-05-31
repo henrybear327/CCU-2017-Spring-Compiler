@@ -8,15 +8,15 @@ r [int side] returns [double val]:
     | /*epsilon*/ {$val = 0;};
 
 l [int side] returns [double base, double val]:
-    ret_b = b ret_ls1 = ls[$ret_b.val, $side] {$base = $ret_ls1.base * 2; 
-											   $val = $side == 1 ? 
-											   		$ret_b.val * $base / 2 + $ret_ls1.val : 
+    ret_b = b ret_ls1 = ls[$ret_b.val, $side] {$base = $ret_ls1.base * 2;
+											   $val = $side == 1 ?
+											   		$ret_b.val * $base / 2 + $ret_ls1.val :
 											   		$ret_b.val / 2 + $ret_ls1.val / 2;};
 
 ls [double orig_val, int side] returns [double base, double val]:
-    ret_b = b ret_ls1 = ls[$ret_b.val, $side] {$base = $ret_ls1.base * 2; 
-											   $val = $side == 1 ? 
-											   		$ret_b.val * $base / 2 + $ret_ls1.val : 
+    ret_b = b ret_ls1 = ls[$ret_b.val, $side] {$base = $ret_ls1.base * 2;
+											   $val = $side == 1 ?
+											   		$ret_b.val * $base / 2 + $ret_ls1.val :
 											   		$ret_b.val / 2 + $ret_ls1.val / 2;}
     | /*epsilon*/ {$base = 1; $val = 0;};
 
