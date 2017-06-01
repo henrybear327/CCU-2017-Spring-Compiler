@@ -219,7 +219,7 @@ public class S_attributedParser extends Parser {
 			setState(23);
 			((LContext)_localctx).ret_b = b();
 			setState(24);
-			((LContext)_localctx).ret_ls1 = ls(((LContext)_localctx).ret_b.val);
+			((LContext)_localctx).ret_ls1 = ls();
 			((LContext)_localctx).base =  ((LContext)_localctx).ret_ls1.base; ((LContext)_localctx).val =  ((LContext)_localctx).ret_b.val * _localctx.base + ((LContext)_localctx).ret_ls1.val; _localctx.base *= 2;
 			}
 		}
@@ -235,7 +235,6 @@ public class S_attributedParser extends Parser {
 	}
 
 	public static class LsContext extends ParserRuleContext {
-		public double orig_val;
 		public double base;
 		public double val;
 		public BContext ret_b;
@@ -246,10 +245,8 @@ public class S_attributedParser extends Parser {
 		public LsContext ls() {
 			return getRuleContext(LsContext.class,0);
 		}
-		public LsContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public LsContext(ParserRuleContext parent, int invokingState, double orig_val) {
+		public LsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
-			this.orig_val = orig_val;
 		}
 		@Override public int getRuleIndex() { return RULE_ls; }
 		@Override
@@ -262,8 +259,8 @@ public class S_attributedParser extends Parser {
 		}
 	}
 
-	public final LsContext ls(double orig_val) throws RecognitionException {
-		LsContext _localctx = new LsContext(_ctx, getState(), orig_val);
+	public final LsContext ls() throws RecognitionException {
+		LsContext _localctx = new LsContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_ls);
 		try {
 			setState(32);
@@ -276,7 +273,7 @@ public class S_attributedParser extends Parser {
 				setState(27);
 				((LsContext)_localctx).ret_b = b();
 				setState(28);
-				((LsContext)_localctx).ret_ls1 = ls(((LsContext)_localctx).ret_b.val);
+				((LsContext)_localctx).ret_ls1 = ls();
 				((LsContext)_localctx).base =  ((LsContext)_localctx).ret_ls1.base; ((LsContext)_localctx).val =  ((LsContext)_localctx).ret_b.val * _localctx.base + ((LsContext)_localctx).ret_ls1.val; _localctx.base *= 2;
 				}
 				break;

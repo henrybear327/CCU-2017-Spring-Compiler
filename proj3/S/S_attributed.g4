@@ -10,10 +10,10 @@ r returns [double base, double val]:
     | /*epsilon*/ {$base = 1; $val = 0;};
 
 l returns [double base, double val]:
-    ret_b = b ret_ls1 = ls[$ret_b.val] {$base = $ret_ls1.base; $val = $ret_b.val * $base + $ret_ls1.val; $base *= 2;};
+    ret_b = b ret_ls1 = ls {$base = $ret_ls1.base; $val = $ret_b.val * $base + $ret_ls1.val; $base *= 2;};
 
-ls [double orig_val] returns [double base, double val]:
-    ret_b = b ret_ls1 = ls[$ret_b.val] {$base = $ret_ls1.base; $val = $ret_b.val * $base + $ret_ls1.val; $base *= 2;}
+ls returns [double base, double val]:
+    ret_b = b ret_ls1 = ls {$base = $ret_ls1.base; $val = $ret_b.val * $base + $ret_ls1.val; $base *= 2;}
     | /*epsilon*/ {$base = 1; $val = 0;};
 
 b returns [double val] :
