@@ -1,0 +1,1 @@
+(program main ( ) { declarations (statements (statement write (arith_expression (arith_term (arith_factor(primary_expression 1)) arith_term1) (arith_expression1 + (arith_term (arith_factor ( primary_expression 2)) arith_term1)(arith_expression1 - (arith_term (arith_factor ( primary_expression 3)) arith_term1) arith_expression1))) ;) statements) })

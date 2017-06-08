@@ -1,0 +1,1 @@
+(program main ( ) { (declarations int n ; declarations) (statements (statement read n ;) statements) })
