@@ -11,7 +11,7 @@ GREEN='\033[1;32m'
 CYAN='\033[0;36m'
 RESET='\033[0m'
 
-FILENAME='CactusGary'
+FILENAME='CactusFI'
 
 # compile code
 printf "${CYAN}Compiling... ${RESET}"
@@ -24,7 +24,7 @@ printf "${CYAN}Done\n\n${RESET}"
 
 for testcase in `seq 1 17`;
 do
-    FOO=`grun $FILENAME program -tree < testcase/$testcase.in > testcase/$testcase.out`
+    FOO=`grun $FILENAME program -tree < testcaseFI/$testcase.in > testcaseFI/$testcase.out`
     RET=$?
 
     if [[ $RET -eq 0 ]]
