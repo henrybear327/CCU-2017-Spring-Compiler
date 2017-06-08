@@ -11,10 +11,10 @@ statement: ID ASSIGNMENT arith_expression SEMICOLON
 		 				| READ ID SEMICOLON
 		 				| WRITE arith_expression SEMICOLON
 		 				| RETURN SEMICOLON
-		 				| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement;
+		 				| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement FI;
 /* common prefix */
-else_statement: ELSE LEFTBRACE statements RIGHTBRACE FI
-	 							| FI;
+else_statement: ELSE LEFTBRACE statements RIGHTBRACE 
+	 							| /* epsilon */;
 
 /* Left recursion */
 bool_expression: bool_term bool_expression1;
