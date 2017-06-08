@@ -5,7 +5,7 @@ TESTCASEDIR='testcase'
 
 if [ $# -eq 0 ]
   then
-    echo "Usage: ./autotest filename [testcase number]\n"
+    echo "Usage: ./autotest filename [testcase number]"
 	echo "./autotest Cactus      -> For testing Cactus.g4 using all testcases"
 	# echo "./autotest Cactus -FI   -> For testing Cactus.g4 using testcase 17"
 	echo "./autotest Cactus 17   -> For testing Cactus.g4 using testcase 17"
