@@ -76,7 +76,7 @@ if [ -z "$2" ]
 			printf "${GREEN}Testcase ${testcase} passed${RESET}\n"
 			sum=`expr $sum + ${score[$testcase]}`
 		else
-			printf "${RED}Testcase ${testcase} failed (-$score[$testcase])\n${RESET}"
+			printf "${RED}Testcase ${testcase} failed (-${score[$testcase]})\n${RESET}"
 			# printf "${RED}The error output is as followed:${RESET}\n\n${FOO}\n"
 		fi
 	done
