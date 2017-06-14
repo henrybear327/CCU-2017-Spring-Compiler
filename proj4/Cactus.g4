@@ -3,10 +3,10 @@ grammar Cactus;
 /* parser rules */
 program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE
 		{
-			System.out.println("\t.data");
+			System.out.println(".data");
 		} declarations
 		{
-			System.out.println("\t.text");
+			System.out.println(".text");
 
 		} statements RIGHTBRACE;
 
@@ -16,7 +16,7 @@ statements: statement statements | /* epsilon */ ;
 
 statement: ID ASSIGNMENT arith_expression SEMICOLON
 		 				| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE
-		 				| READ ID SEMICOLON
+		 				| READ ID SEMICOLON {System.out.println("li \$v0, 5\nsyscall\nla \$t0, n"); }
 		 				| WRITE arith_expression SEMICOLON
 		 				| RETURN SEMICOLON
 		 				| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement FI;
