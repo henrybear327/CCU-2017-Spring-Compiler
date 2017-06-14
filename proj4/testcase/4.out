@@ -1,0 +1,26 @@
+            .data
+    n:        .word 0
+            .text
+    main:
+            li $t0, 3
+            li $t1, 2
+            bgt $t0, $t1, L5
+            b L4
+    L5:
+            b L1
+    L4:
+            li $t0, 3
+            li $t1, 2
+            ble $t0, $t1, L7
+            b L6
+    L7:
+            b L1
+    L6:
+            b L2
+    L1:
+            li $t0, 999
+            la $t1, n
+            sw $t0, 0($t1)
+            b L3
+    L2:
+    L3:
