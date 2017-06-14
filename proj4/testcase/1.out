@@ -1,71 +1,70 @@
-
-            .data
-    n:        .word 0
-    s:        .word 0
-    i:        .word 0
-            .text
-    main:
-            li $v0, 5
-            syscall
-            la $t0, n
-            sw $v0, 0($t0)
-            la $t0, n
-            lw $t0, 0($t0)
-            li $t1, 1
-            blt $t0, $t1, L5
-            b L4
-    L5:
-            b L1
-    L4:
-            b L2
-    L1:
-            li $t0, 1
-            neg $t0, $t0
-            move $a0, $t0
-            li $v0, 1
-            syscall
-            li $v0, 10
-            syscall
-            b L3
-    L2:
-            li $t0, 0
-            la $t1, s
-            sw $t0, 0($t1)
-    L3:
-            li $t0, 1
-            la $t1, i
-            sw $t0, 0($t1)
-    L6:
-            la $t0, i
-            lw $t0, 0($t0)
-            la $t1, n
-            lw $t1, 0($t1)
-            ble $t0, $t1, L10
-            b L9
-    L10:
-            b L7
-    L9:
-            b L8
-    L7:
-            la $t0, s
-            lw $t0, 0($t0)
-            la $t1, i
-            lw $t1, 0($t1)
-            add $t0, $t0, $t1
-            la $t1, s
-            sw $t0, 0($t1)
-            la $t0, i
-            lw $t0, 0($t0)
-            li $t1, 1
-            add $t0, $t0, $t1
-            la $t1, i
-            sw $t0, 0($t1)
-            b L6
-    L8:
-            la $t0, s
-            lw $t0, 0($t0)
-            move $a0, $t0
-            li $v0, 1
-            syscall
-            li $v0, 10
-            syscall
+        .data
+n:      .word 0
+s:      .word 0
+i:      .word 0
+        .text
+main:
+        li $v0, 5
+        syscall
+        la $t0, n
+        sw $v0, 0($t0)
+        la $t0, n
+        lw $t0, 0($t0)
+        li $t1, 1
+        blt $t0, $t1, L5
+        b L4
+L5:
+        b L1
+L4:
+        b L2
+L1:
+        li $t0, 1
+        neg $t0, $t0
+        move $a0, $t0
+        li $v0, 1
+        syscall
+        li $v0, 10
+        syscall
+        b L3
+L2:
+        li $t0, 0
+        la $t1, s
+        sw $t0, 0($t1)
+L3:
+        li $t0, 1
+        la $t1, i
+        sw $t0, 0($t1)
+L6:
+        la $t0, i
+        lw $t0, 0($t0)
+        la $t1, n
+        lw $t1, 0($t1)
+        ble $t0, $t1, L10
+        b L9
+L10:
+        b L7
+L9:
+        b L8
+L7:
+        la $t0, s
+        lw $t0, 0($t0)
+        la $t1, i
+        lw $t1, 0($t1)
+        add $t0, $t0, $t1
+        la $t1, s
+        sw $t0, 0($t1)
+        la $t0, i
+        lw $t0, 0($t0)
+        li $t1, 1
+        add $t0, $t0, $t1
+        la $t1, i
+        sw $t0, 0($t1)
+        b L6
+L8:
+        la $t0, s
+        lw $t0, 0($t0)
+        move $a0, $t0
+        li $v0, 1
+        syscall
+        li $v0, 10
+        syscall
