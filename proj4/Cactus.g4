@@ -123,14 +123,23 @@ ret = bool_term[$reg, $label, $btrue, $bfalse] ret1 = bool_expression1[$reg, $re
 };
 
 bool_expression1 [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
-LOGICALOR ret = bool_term[$reg, $label, $btrue, $bfalse] ret1 = bool_expression1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	System.out.println("L" + ($label + 1) + ":");
+	System.out.println("\tb L" + $btrue);
+	System.out.println("L" + $label + ":");
+}
+LOGICALOR ret = bool_term[$reg, $label + 2, $btrue, $bfalse] ret1 = bool_expression1[$reg, $ret.nlabel, $btrue, $bfalse]
 {
 	$nlabel = $ret1.nlabel;
 }
 |  /* epsilon */
 {
+	System.out.println("L" + ($label + 1) + ":");
+	System.out.println("\tb L" + $btrue);
+	System.out.println("L" + $label + ":");
 	System.out.println("\tb L" + $bfalse);
-	$nlabel = $label;
+
+	$nlabel = $label + 2;
 };
 
 bool_term [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
@@ -140,7 +149,13 @@ ret = bool_factor[$reg, $label, $btrue, $bfalse] ret1 = bool_term1[$reg, $ret.nl
 };
 
 bool_term1 [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
-LOGICALAND ret = bool_factor[$reg, $label, $btrue, $bfalse] ret1 = bool_term1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	System.out.println("L" + ($label) + ":");
+	System.out.println("\tb L" + $bfalse);
+
+	System.out.println("L" + ($label + 1) + ":");
+}
+LOGICALAND ret = bool_factor[$reg, $label + 2, $btrue, $bfalse] ret1 = bool_term1[$reg, $ret.nlabel, $btrue, $bfalse]
 {
 	$nlabel = $ret1.nlabel;
 }
@@ -181,11 +196,7 @@ ret = arith_expression[$reg] type = relation_op ret1 = arith_expression[$ret.nre
 	System.out.println("\$t" + $ret.place + ", \$t" + $ret1.place + ", L" + ($label + 1));
 	System.out.println("\tb L" + $label);
 
-	System.out.println("L" + ($label + 1) + ":");
-	System.out.println("\tb L" + $btrue);
-	System.out.println("L" + $label + ":");
-
-	$nlabel = $label + 2;
+	$nlabel = $label;
 };
 
 relation_op returns [int type]:
