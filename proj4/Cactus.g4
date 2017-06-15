@@ -15,7 +15,17 @@ program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE
 declarations: INT ID SEMICOLON {System.out.println($ID.text + ":\t.word 0");} declarations | /* epsilon */ ;
 
 // all code goes in statement
-statements [int reg, int label] : ret = statement[$reg, $label] statements[$ret.nreg, $ret.nlabel] | /* epsilon */ ;
+statements [int reg, int label] returns [int nreg, int nlabel]:
+ret = statement[$reg, $label] ret1 = statements[$ret.nreg, $ret.nlabel]
+{
+	$nreg = $ret1.nreg;
+	$nlabel = $ret1.nlabel;
+}
+|
+{
+	$nreg = $nreg;
+	$nlabel = $label;
+} /* epsilon */ ;
 
 // System.out.println("\t");
 statement [int reg, int label] returns [int nreg, int nlabel]:
@@ -26,59 +36,101 @@ ID ASSIGNMENT ret = arith_expression[$reg]
 
 	$nreg = $ret.nreg - 1;
 	$nlabel = $label;
-}
-SEMICOLON
+} SEMICOLON
 
-| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE
-
-| READ ID SEMICOLON
+| READ ID
 {
 	System.out.println("\tli \$v0, 5");
 	System.out.println("\tsyscall");
 	System.out.println("\tla \$t" + $reg + ", n");
 	System.out.println("\tsw \$v0, 0(\$t" + $reg + ")");
-}
+
+	$nreg = $reg;
+	$nlabel = $label;
+} SEMICOLON
 
 | WRITE ret = arith_expression[$reg]
 {
 	System.out.println("\tmove \$a0, \$t" + $ret.place);
 	System.out.println("\tli \$v0, 1");
 	System.out.println("\tsyscall");
-}
-SEMICOLON
+
+	$nreg = $reg;
+	$nlabel = $label;
+} SEMICOLON
 
 | RETURN
 {
 	System.out.println("\tli \$v0, 10");
 	System.out.println("\tsyscall");
+
+	$nreg = $reg;
+	$nlabel = $label;
+} SEMICOLON
+
+| WHILE LEFTPARENTHESIS bool_expression[$reg, $label] RIGHTPARENTHESIS LEFTBRACE statements[$reg, $label] RIGHTBRACE
+
+|
+IF
+LEFTPARENTHESIS bool_expression[$reg, $label + 3] RIGHTPARENTHESIS LEFTBRACE
+{
+	System.out.println("L" + ($label) + ":");
 }
-SEMICOLON
+ret1 = statements[$reg, $label + 3] RIGHTBRACE
+{
+	System.out.println("\tb L" + ($label + 2));
+	System.out.println("L" + ($label + 1) + ":");
+}
+ret2 = else_statement[$ret1.nreg, $ret1.nlabel] FI
+{
+	System.out.println("L" + ($label + 2)+ ":");
+	$nreg = $ret2.nreg;
+	$nlabel = $ret2.nlabel;
+}
+;
 
-| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE else_statement FI;
+else_statement [int reg, int label] returns [int nreg, int nlabel]:
+ELSE LEFTBRACE ret = statements[$reg, $label] RIGHTBRACE
+{
+	$nreg = $ret.nreg;
+	$nlabel = $ret.nlabel;
+}
+|
+{
+	$nreg = $reg;
+	$nlabel = $label;
+} /* epsilon */;
 
-else_statement: ELSE LEFTBRACE statements[0, 1] RIGHTBRACE
+bool_expression [int reg, int label]:
+bool_term[$reg, $label] bool_expression1[$reg, $label];
 
-				| /* epsilon */;
+bool_expression1 [int reg, int label]: LOGICALOR bool_term[$reg, $label] bool_expression1[$reg, $label]
 
-bool_expression: bool_term bool_expression1;
+|  /* epsilon */;
 
-bool_expression1: LOGICALOR bool_term bool_expression1
+bool_term [int reg, int label]:
+bool_factor[$reg, $label] bool_term1[$reg, $label];
 
-				  |  /* epsilon */;
+bool_term1 [int reg, int label]:
+LOGICALAND bool_factor[$reg, $label] bool_term1[$reg, $label]
 
-bool_term: bool_factor bool_term1;
+| /* epsilon */;
 
-bool_term1: LOGICALAND bool_factor bool_term1
+bool_factor [int reg, int label]:
+NOT bool_factor[$reg, $label]
 
-			| /* epsilon */;
+| rel_expression[$reg, $label];
 
-bool_factor: NOT bool_factor
+rel_expression [int reg, int label]:
+arith_expression[0] relation_op[$reg, $label] arith_expression[1];
 
-			 | rel_expression;
-
-rel_expression: arith_expression[0] relation_op arith_expression[1]; // not done
-
-relation_op: ISEQUAL | NOTEQUAL | GREATER | GREATEREQUAL | LESS | LESSEQUAL;
+relation_op [int reg, int label]:
+ISEQUAL
+| NOTEQUAL
+| GREATER
+| GREATEREQUAL
+| LESS
+| LESSEQUAL;
 
 
 
