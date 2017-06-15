@@ -129,6 +129,7 @@ LOGICALOR ret = bool_term[$reg, $label, $btrue, $bfalse] ret1 = bool_expression1
 }
 |  /* epsilon */
 {
+	System.out.println("\tb L" + $bfalse);
 	$nlabel = $label;
 };
 
@@ -150,7 +151,7 @@ LOGICALAND ret = bool_factor[$reg, $label, $btrue, $bfalse] ret1 = bool_term1[$r
 };
 
 bool_factor [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
-NOT ret1 = bool_factor[$reg, $label, $btrue, $bfalse]
+NOT ret1 = bool_factor[$reg, $label, $bfalse, $btrue]
 {
 	$nlabel = $ret1.nlabel;
 }
@@ -183,7 +184,6 @@ ret = arith_expression[$reg] type = relation_op ret1 = arith_expression[$ret.nre
 	System.out.println("L" + ($label + 1) + ":");
 	System.out.println("\tb L" + $btrue);
 	System.out.println("L" + $label + ":");
-	System.out.println("\tb L" + $bfalse);
 
 	$nlabel = $label + 2;
 };
