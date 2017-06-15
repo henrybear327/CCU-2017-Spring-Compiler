@@ -23,7 +23,6 @@ statement [int reg, int label] /*returns [int nreg, int nlabel]*/:
 			{
 				System.out.println("\tla \$t" + $ret.nreg + ", " + $ID.text);
 				System.out.println("\tsw \$t" + $ret.place + ", 0(\$t" + $ret.nreg + ")");
-
 			}
 			/* $nreg = $ret.nreg - 1; */
 			/* $nlabel = $label; */
@@ -70,7 +69,7 @@ bool_factor: NOT bool_factor
 
 			 | rel_expression;
 
-rel_expression: arith_expression[0] relation_op arith_expression[0]; // not done
+rel_expression: arith_expression[0] relation_op arith_expression[1]; // not done
 
 relation_op: ISEQUAL | NOTEQUAL | GREATER | GREATEREQUAL | LESS | LESSEQUAL;
 
@@ -106,9 +105,9 @@ ret = arith_term[$reg] ret1 = arith_expression1[$ret.nreg, $ret.place]
 arith_expression1 [int reg, int place] returns [int nreg, int nplace]:
 ADD ret = arith_term[$reg]
 {
-	System.out.println("\tadd \$t" + $place + ", \$t" + $place + ", " + $ret.place);
+	System.out.println("\tadd \$t" + $place + ", \$t" + $place + ", \$t" + $ret.place);
 }
-ret11 = arith_expression1[$reg, $ret.place]
+ret11 = arith_expression1[$reg, $place]
 {
 	$nreg = $ret11.nreg;
 	$nplace = $ret11.nplace;
@@ -116,9 +115,9 @@ ret11 = arith_expression1[$reg, $ret.place]
 
 | MINUS ret = arith_term[$reg]
 {
-	System.out.println("\tsub \$t" + $place + ", \$t" + $place + ", " + $ret.place);
+	System.out.println("\tsub \$t" + $place + ", \$t" + $place + ", \$t" + $ret.place);
 }
-ret12 = arith_expression1[$reg, $ret.place]
+ret12 = arith_expression1[$reg, $place]
 {
 	$nreg = $ret12.nreg;
 	$nplace = $ret12.nplace;
@@ -140,9 +139,9 @@ ret = arith_factor[$reg] ret1 = arith_term1[$ret.nreg, $ret.place]
 arith_term1 [int reg, int place] returns [int nreg, int nplace]:
 MULTIPLY ret = arith_factor[$reg]
 {
-	System.out.println("\tmul \$t" + $place + ", \$t" + $place + ", " + $ret.place);
+	System.out.println("\tmul \$t" + $place + ", \$t" + $place + ", \$t" + $ret.place);
 }
-ret13 = arith_term1[$reg, $ret.place]
+ret13 = arith_term1[$reg, $place]
 {
 	$nreg = $ret13.nreg;
 	$nplace = $ret13.nplace;
@@ -150,9 +149,9 @@ ret13 = arith_term1[$reg, $ret.place]
 
 | DIVIDE ret = arith_factor[$reg]
 {
-	System.out.println("\tdiv \$t" + $place + ", \$t" + $place + ", " + $ret.place);
+	System.out.println("\tdiv \$t" + $place + ", \$t" + $place + ", \$t" + $ret.place);
 }
-ret14 = arith_term1[$reg, $ret.place]
+ret14 = arith_term1[$reg, $place]
 {
 	$nreg = $ret14.nreg;
 	$nplace = $ret14.nplace;
@@ -160,9 +159,9 @@ ret14 = arith_term1[$reg, $ret.place]
 
 | PERCENTAGE ret = arith_factor[$reg]
 {
-	System.out.println("\trem \$t" + $place + ", \$t" + $place + ", " + $ret.place);
+	System.out.println("\trem \$t" + $place + ", \$t" + $place + ", \$t" + $ret.place);
 }
-ret15 = arith_term1[$reg, $ret.place]
+ret15 = arith_term1[$reg, $place]
 {
 	$nreg = $ret15.nreg;
 	$nplace = $ret15.nplace;
