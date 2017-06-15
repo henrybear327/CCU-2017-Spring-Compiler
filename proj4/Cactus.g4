@@ -10,64 +10,77 @@ program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE
 
 		} statements RIGHTBRACE;
 
+// declaration
+// var name:	.word 0
 declarations: INT ID SEMICOLON {System.out.println($ID.text + ":\t.word 0");} declarations | /* epsilon */ ;
 
+// all code goes in statement
 statements: statement statements | /* epsilon */ ;
 
+// Deal with system call first
 statement: ID ASSIGNMENT arith_expression SEMICOLON
-		 				| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE
-		 				| READ ID SEMICOLON {System.out.println("li \$v0, 5\nsyscall\nla \$t0, n"); }
-		 				| WRITE arith_expression SEMICOLON
-		 				| RETURN SEMICOLON
-		 				| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement FI;
 
-/* common prefix */
+			| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE
+
+			| READ ID SEMICOLON {System.out.println("\tli \$v0, 5\n\tsyscall\n\tla \$t0, n"); }
+
+			| WRITE arith_expression SEMICOLON
+
+			| RETURN SEMICOLON
+
+			| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement FI;
+
 else_statement: ELSE LEFTBRACE statements RIGHTBRACE
-	 							| /* epsilon */;
 
-/* Left recursion */
+				| /* epsilon */;
+
 bool_expression: bool_term bool_expression1;
 
 bool_expression1: LOGICALOR bool_term bool_expression1
-									|  /* epsilon */;
 
-/* Left recursion */
+				  |  /* epsilon */;
+
 bool_term: bool_factor bool_term1;
 
 bool_term1: LOGICALAND bool_factor bool_term1
-		  				| /* epsilon */;
+
+			| /* epsilon */;
 
 bool_factor: NOT bool_factor
-		   				| rel_expression;
+
+			 | rel_expression;
 
 rel_expression: arith_expression relation_op arith_expression;
 
 relation_op: ISEQUAL | NOTEQUAL | GREATER | GREATEREQUAL | LESS | LESSEQUAL;
 
-/* Left recursion */
 arith_expression: arith_term arith_expression1;
 
 arith_expression1: ADD arith_term arith_expression1
-	 									| MINUS arith_term arith_expression1
-	 									| /* epsilon */ ;
 
-/* Left recursion */
+					| MINUS arith_term arith_expression1
+
+					| /* epsilon */ ;
+
 arith_term: arith_factor arith_term1;
 
 arith_term1: MULTIPLY arith_factor arith_term1
-	 | DIVIDE arith_factor arith_term1
-	 | PERCENTAGE arith_factor arith_term1
-	 | /* epsilon */ ;
+
+			| DIVIDE arith_factor arith_term1
+
+	 		| PERCENTAGE arith_factor arith_term1
+
+			| /* epsilon */ ;
 
 arith_factor: MINUS arith_factor
-							| primary_expression;
+
+			  | primary_expression;
 
 primary_expression: CONST
-				  					| ID
-				  					| LEFTPARENTHESIS arith_expression RIGHTPARENTHESIS;
 
+					| ID
 
-
+					| LEFTPARENTHESIS arith_expression RIGHTPARENTHESIS;
 
 
 
