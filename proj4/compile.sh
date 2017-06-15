@@ -22,7 +22,17 @@ printf "${CYAN}Compiling... ${RESET}"
 # rm *.class
 # rm *.tokens
 $antlr4 $FILENAME.g4
+if [ $? -ne 0 ]
+then
+  exit 1
+fi
+
 javac $FILENAME*.java
+if [ $? -ne 0 ]
+then
+  exit 1
+fi
+
 printf "${CYAN}Done\n\n${RESET}"
 
 # run
