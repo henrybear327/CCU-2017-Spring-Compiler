@@ -52,7 +52,7 @@ if [ -z "$2" ]
 	do
 		# echo "Testing on testcase $testcase"
 
-		FOO=`$grun $1 program < $TESTCASEDIR/$testcase.in | diff -w - $TESTCASEDIR/$testcase.out`
+		FOO=`$grun $1 program < $TESTCASEDIR/$testcase.in | diff -y -w - $TESTCASEDIR/$testcase.out`
 		RET=$?
 
 		if [[ $RET -eq 0 ]]

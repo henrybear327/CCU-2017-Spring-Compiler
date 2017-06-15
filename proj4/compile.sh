@@ -26,4 +26,4 @@ javac $FILENAME*.java
 printf "${CYAN}Done\n\n${RESET}"
 
 # run
-$grun $FILENAME program < $TESTCASEDIR/$TESTCASE.in
+$grun $FILENAME program < $TESTCASEDIR/$TESTCASE.in | diff -y -w - $TESTCASEDIR/$TESTCASE.out
