@@ -3,34 +3,45 @@ grammar Cactus;
 /* parser rules */
 program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE
 		{
-			System.out.println(".data");
+			System.out.println("\t.data");
 		} declarations
 		{
-			System.out.println(".text");
-
-		} statements RIGHTBRACE;
+			System.out.println("\t.text");
+			System.out.println("main:");
+		} statements[0, 1] RIGHTBRACE;
 
 // declaration
 // var name:	.word 0
 declarations: INT ID SEMICOLON {System.out.println($ID.text + ":\t.word 0");} declarations | /* epsilon */ ;
 
 // all code goes in statement
-statements: statement statements | /* epsilon */ ;
+statements [int reg, int label] : statement[$reg, $label] statements[0, 1] | /* epsilon */ ;
 
 // Deal with system call first
-statement: ID ASSIGNMENT arith_expression SEMICOLON
+statement [int nreg, int nlabel]: ID ASSIGNMENT arith_expression SEMICOLON
 
-			| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE
+			| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE
 
-			| READ ID SEMICOLON {System.out.println("\tli \$v0, 5\n\tsyscall\n\tla \$t0, n"); }
+			| READ ID SEMICOLON
+			  {
+			  	System.out.println("\tli \$v0, 5");
+				System.out.println("\tsyscall");
+				System.out.println("\tla \$t" + $nreg + ", n");
+				System.out.println("\tsw \$v0, 0(\$t" + $nreg + ")");
+			  }
 
 			| WRITE arith_expression SEMICOLON
 
-			| RETURN SEMICOLON
+			| RETURN
+			  {
+			  	System.out.println("\tli \$v0, 10");
+				System.out.println("\tsyscall");
+			  }
+			  SEMICOLON
 
-			| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements RIGHTBRACE else_statement FI;
+			| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE else_statement FI;
 
-else_statement: ELSE LEFTBRACE statements RIGHTBRACE
+else_statement: ELSE LEFTBRACE statements[0, 1] RIGHTBRACE
 
 				| /* epsilon */;
 
