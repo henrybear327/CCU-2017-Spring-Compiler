@@ -15,39 +15,46 @@ program: MAIN LEFTPARENTHESIS RIGHTPARENTHESIS LEFTBRACE
 declarations: INT ID SEMICOLON {System.out.println($ID.text + ":\t.word 0");} declarations | /* epsilon */ ;
 
 // all code goes in statement
-statements [int reg, int label] : statement[$reg, $label] statements[0, 1] | /* epsilon */ ;
+statements [int reg, int label] : ret = statement[$reg, $label] statements[$ret.nreg, $ret.nlabel] | /* epsilon */ ;
 
 // System.out.println("\t");
-statement [int reg, int label] /*returns [int nreg, int nlabel]*/:
-			ID ASSIGNMENT ret = arith_expression[$reg]
-			{
-				System.out.println("\tla \$t" + $ret.nreg + ", " + $ID.text);
-				System.out.println("\tsw \$t" + $ret.place + ", 0(\$t" + $ret.nreg + ")");
-			}
-			/* $nreg = $ret.nreg - 1; */
-			/* $nlabel = $label; */
-			SEMICOLON
+statement [int reg, int label] returns [int nreg, int nlabel]:
+ID ASSIGNMENT ret = arith_expression[$reg]
+{
+	System.out.println("\tla \$t" + $ret.nreg + ", " + $ID.text);
+	System.out.println("\tsw \$t" + $ret.place + ", 0(\$t" + $ret.nreg + ")");
 
-			| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE
+	$nreg = $ret.nreg - 1;
+	$nlabel = $label;
+}
+SEMICOLON
 
-			| READ ID SEMICOLON
-			  {
-			  	System.out.println("\tli \$v0, 5");
-				System.out.println("\tsyscall");
-				System.out.println("\tla \$t" + $reg + ", n");
-				System.out.println("\tsw \$v0, 0(\$t" + $reg + ")");
-			  }
+| WHILE LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE
 
-			| WRITE arith_expression[$reg] SEMICOLON // not done
+| READ ID SEMICOLON
+{
+	System.out.println("\tli \$v0, 5");
+	System.out.println("\tsyscall");
+	System.out.println("\tla \$t" + $reg + ", n");
+	System.out.println("\tsw \$v0, 0(\$t" + $reg + ")");
+}
 
-			| RETURN
-			  {
-			  	System.out.println("\tli \$v0, 10");
-				System.out.println("\tsyscall");
-			  }
-			  SEMICOLON
+| WRITE ret = arith_expression[$reg]
+{
+	System.out.println("\tmove \$a0, \$t" + $ret.place);
+	System.out.println("\tli \$v0, 1");
+	System.out.println("\tsyscall");
+}
+SEMICOLON
 
-			| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE else_statement FI;
+| RETURN
+{
+	System.out.println("\tli \$v0, 10");
+	System.out.println("\tsyscall");
+}
+SEMICOLON
+
+| IF LEFTPARENTHESIS bool_expression RIGHTPARENTHESIS LEFTBRACE statements[0, 1] RIGHTBRACE else_statement FI;
 
 else_statement: ELSE LEFTBRACE statements[0, 1] RIGHTBRACE
 
