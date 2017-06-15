@@ -23,7 +23,7 @@ ret = statement[$reg, $label] ret1 = statements[$ret.nreg, $ret.nlabel]
 }
 |
 {
-	$nreg = $nreg;
+	$nreg = $reg;
 	$nlabel = $label;
 } /* epsilon */ ;
 
@@ -68,15 +68,30 @@ ID ASSIGNMENT ret = arith_expression[$reg]
 	$nlabel = $label;
 } SEMICOLON
 
-| WHILE LEFTPARENTHESIS bool_expression[$reg, $label] RIGHTPARENTHESIS LEFTBRACE statements[$reg, $label] RIGHTBRACE
-
 |
-IF
-LEFTPARENTHESIS bool_expression[$reg, $label + 3] RIGHTPARENTHESIS LEFTBRACE
 {
 	System.out.println("L" + ($label) + ":");
 }
-ret1 = statements[$reg, $label + 3] RIGHTBRACE
+WHILE LEFTPARENTHESIS ret11 = bool_expression[$reg, $label + 3, $label + 1, $label + 2] RIGHTPARENTHESIS
+LEFTBRACE
+{
+	System.out.println("L" + ($label + 1) + ":");
+} ret5 = statements[$reg, $ret11.nlabel] RIGHTBRACE
+{
+	System.out.println("\tb L" + $label);
+	System.out.println("L" + ($label + 2) + ":");
+
+	$nreg = $ret5.nreg;
+	$nlabel = $ret5.nlabel;
+}
+
+|
+IF
+LEFTPARENTHESIS ret11 = bool_expression[$reg, $label + 3, $label, $label + 1] RIGHTPARENTHESIS LEFTBRACE
+{
+	System.out.println("L" + ($label) + ":");
+}
+ret1 = statements[$reg, $ret11.nlabel] RIGHTBRACE
 {
 	System.out.println("\tb L" + ($label + 2));
 	System.out.println("L" + ($label + 1) + ":");
@@ -101,36 +116,104 @@ ELSE LEFTBRACE ret = statements[$reg, $label] RIGHTBRACE
 	$nlabel = $label;
 } /* epsilon */;
 
-bool_expression [int reg, int label]:
-bool_term[$reg, $label] bool_expression1[$reg, $label];
+bool_expression [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+ret = bool_term[$reg, $label, $btrue, $bfalse] ret1 = bool_expression1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	$nlabel = $ret1.nlabel;
+};
 
-bool_expression1 [int reg, int label]: LOGICALOR bool_term[$reg, $label] bool_expression1[$reg, $label]
+bool_expression1 [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+LOGICALOR ret = bool_term[$reg, $label, $btrue, $bfalse] ret1 = bool_expression1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	$nlabel = $ret1.nlabel;
+}
+|  /* epsilon */
+{
+	$nlabel = $label;
+};
 
-|  /* epsilon */;
+bool_term [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+ret = bool_factor[$reg, $label, $btrue, $bfalse] ret1 = bool_term1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	$nlabel = $ret1.nlabel;
+};
 
-bool_term [int reg, int label]:
-bool_factor[$reg, $label] bool_term1[$reg, $label];
+bool_term1 [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+LOGICALAND ret = bool_factor[$reg, $label, $btrue, $bfalse] ret1 = bool_term1[$reg, $ret.nlabel, $btrue, $bfalse]
+{
+	$nlabel = $ret1.nlabel;
+}
 
-bool_term1 [int reg, int label]:
-LOGICALAND bool_factor[$reg, $label] bool_term1[$reg, $label]
+| /* epsilon */
+{
+	$nlabel = $label;
+};
 
-| /* epsilon */;
+bool_factor [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+NOT ret1 = bool_factor[$reg, $label, $btrue, $bfalse]
+{
+	$nlabel = $ret1.nlabel;
+}
 
-bool_factor [int reg, int label]:
-NOT bool_factor[$reg, $label]
+| ret = rel_expression[$reg, $label, $btrue, $bfalse]
+{
+	$nlabel = $ret.nlabel;
+}
+;
 
-| rel_expression[$reg, $label];
+rel_expression [int reg, int label, int btrue, int bfalse] returns [int nlabel]:
+ret = arith_expression[$reg] type = relation_op ret1 = arith_expression[$ret.nreg]
+{
+	if($type.type == 1)
+		System.out.print("\tbeq ");
+	else if($type.type == 2)
+		System.out.print("\tbne ");
+	else if($type.type == 3)
+		System.out.print("\tbgt ");
+	else if($type.type == 4)
+		System.out.print("\tbge ");
+	else if($type.type == 5)
+		System.out.print("\tblt ");
+	else
+		System.out.print("\tble ");
 
-rel_expression [int reg, int label]:
-arith_expression[0] relation_op[$reg, $label] arith_expression[1];
+	System.out.println("\$t" + $ret.place + ", \$t" + $ret1.place + ", L" + ($label + 1));
+	System.out.println("\tb L" + $label);
 
-relation_op [int reg, int label]:
+	System.out.println("L" + ($label + 1) + ":");
+	System.out.println("\tb L" + $btrue);
+	System.out.println("L" + $label + ":");
+	System.out.println("\tb L" + $bfalse);
+
+	$nlabel = $label + 2;
+};
+
+relation_op returns [int type]:
 ISEQUAL
+{
+	$type = 1;
+}
 | NOTEQUAL
+{
+	$type = 2;
+}
 | GREATER
+{
+	$type = 3;
+}
 | GREATEREQUAL
+{
+	$type = 4;
+}
 | LESS
-| LESSEQUAL;
+{
+	$type = 5;
+}
+| LESSEQUAL
+{
+	$type = 6;
+}
+;
 
 
 

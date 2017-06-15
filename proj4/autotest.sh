@@ -69,7 +69,7 @@ if [ -z "$2" ]
 else
 	printf "${CYAN}Testing ${1} on testcase ${2}\n${RESET}"
 
-	FOO=`$grun $1 program -tree < $TESTCASEDIR/$2.in | diff -w - $TESTCASEDIR/$2.out`
+	FOO=`$grun $1 program < $TESTCASEDIR/$2.in | diff -y -w - $TESTCASEDIR/$2.out`
 	RET=$?
 
 	if [[ $RET -eq 0 ]]
